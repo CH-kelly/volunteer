@@ -1,0 +1,130 @@
+.index{
+  background: #F5F5F5;
+  height: 100vh;
+}
+.header{
+  padding: 10rpx 30rpx;
+  background: #F52A46;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  
+  box-shadow:0px 10rpx 24rpx 6rpx rgba(159,36,53,0.3);
+  border-radius:0px 0px 40rpx 40rpx;
+}
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-h1{
+  margin: 0 20rpx;
+}
+
+.header-h1{
+  position: relative;
+}
+.calendar-icon{
+  position: absolute;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+}
+.line{
+  height: 1rpx;
+  background:rgba(255,255,255,0.3);
+  margin: 10rpx 0 35rpx 0;
+}
+
+
+.week{
+  font-size: 28rpx;
+  justify-content: space-between;
+  color:rgba(255,255,255,0.3);
+}
+
+.days{
+  font-size: 32rpx;
+  justify-content: space-between;
+  color:rgba(255,255,255,1);
+  margin: 20rpx 0 0 0;
+  
+}
+.days-lists{
+  height: 100rpx;
+}
+.days-item{
+  position: relative;
+  width: 58rpx;
+  height: 58rpx;
+}
+.active{
+  color: #000000;
+}
+.days-title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.days-desc{
+  font-size:24rpx;
+  font-weight:400;
+}
+.select{
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.lists{
+  margin: 40rpx 30rpx;
+}
+.lists text{
+  font-family:PingFang SC;
+  color:rgba(0,0,0,1);
+}
+.lists-item{
+  margin-bottom: 30rpx;
+  padding: 30rpx;
+  background: #ffffff;
+  border-radius:30rpx;
+}
+.lists-title{
+  justify-content: flex-start;
+}
+.lists-image{
+  width:112rpx;
+  height:112rpx;
+  border-radius: 10rpx;
+  margin-right: 23rpx;
+}
+.title-h2{
+  
+font-family:PingFang SC;
+font-size:34rpx;
+font-weight:bold;
+}
+.lists-line{
+  height: 2rpx;
+  background:rgba(199,199,199,1);
+  margin: 10rpx 0 16rpx 0;
+}
+.address{
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+}
+.workTimer{
+  margin-top: 30rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.address-right > view{
+  margin-bottom: 10rpx;
+}

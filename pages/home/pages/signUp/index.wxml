@@ -1,0 +1,44 @@
+<view class="index">  
+  <view class="header flex">
+    <view bindtap="clickHeader" data-id="3" class="{{current==3?'active':''}}">全部</view>
+    <view bindtap="clickHeader" data-id="0"  class="{{current==0?'active':''}}">审核中</view>
+    <view bindtap="clickHeader" data-id="1"  class="{{current==1?'active':''}}">审核通过</view>
+    <view bindtap="clickHeader" data-id="2"  class="{{current==2?'active':''}}">审核失败</view>
+  </view>
+
+  <view class="header-lists">
+    <scroll-view class="scroll-view" scroll-y 
+    refresher-enabled="true" 
+    refresher-triggered="{{triggered}}"
+    refresher-default-style="black" 
+    bindrefresherrefresh="bindrefresherrefresh"
+    bindrefresherabort="bindrefresherabort"
+    bindscrolltolower="loadMore"
+    >
+        <block wx:for="{{lists}}" wx:key="index">
+        
+          <view class="item flex"  bindtap="{{item.switch==1?'gotoDetail':''}}" data-id="{{item.id}}">
+            <view class="item-left">
+              <image mode="aspectFill" src="{{item.thumbnail_image}}"></image>
+            </view>
+            <view class="item-right">
+              <view class="audit" wx:if="{{item.switch==0}}">审核中</view>
+              <view class="audit success" wx:if="{{item.switch==1}}">审核通过</view>
+              <view class="audit refuse" wx:if="{{item.switch==2}}">审核失败</view>
+              <view class="title">{{item.activityname}}</view>
+              <view class="time">
+                <text class="start">活动开始时间：</text>
+                <text class="timer">{{item.starttime}}</text>
+              </view>
+              <view class="time">
+                <text class="start">报名截止时间：</text>
+                <text class="timer">{{item.endtime}}</text>
+              </view>
+            </view>
+          </view>
+
+        </block>
+    </scroll-view>
+  </view>
+
+</view>

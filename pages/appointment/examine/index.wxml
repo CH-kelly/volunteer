@@ -1,0 +1,10 @@
+<!--pages/appointment/examine/index.wxml-->
+<view>
+  <view class="examine">
+      <image class="background" src="/static/images/appointment/back.png"></image>
+      <text>审核中，请耐心等待</text>
+      
+      <view class="button"  bindtap="gotoIndex" >回到首页</view>
+
+  </view>
+</view>

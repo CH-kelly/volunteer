@@ -1,0 +1,67 @@
+<!--pages/home/index.wxml-->
+<view class="index">
+  <view class="info">
+      <view class="top" wx:if="{{isLogin==1}}">
+        <view class="top-left">
+          <view>{{userInfo.nickname}}</view>
+          <view class="info-address">{{userInfo.province}} {{userInfo.city}}</view>
+        </view>
+        <image class="top-right" src="{{userInfo.avatar}}"></image>
+      </view>
+      <view class="top"  wx:else>
+          <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+          </button>
+      </view>
+
+  </view>
+  <view class="float-menus">
+    
+    <view class="float-menu">
+      <view class="float-menu-left"  bindtap="gotoSignUp">
+        <view class="float-title">{{activitynum}}</view>
+        <view class="float-desc">志愿者报名审核中</view>
+      </view>
+      <view class="float-menu-right"  bindtap="gotoAppointment">
+        <view  class="float-title">{{venuenum}}</view>
+        <view class="float-desc">预约场馆审核中</view>
+      </view>
+    </view>
+
+    <view class="menu-lists"  bindtap="gotoEditInfo">
+      <view class="menu-itme">
+        <view class="flex-center">
+          <image class="item-icon" src="/static/images/my/data.png"></image>
+          <text>我的资料</text>
+        </view>
+        <image class="item-right" src="/static/images/my/right.png"></image>
+      </view>
+      
+      
+      <view class="menu-itme" bindtap="gotoSignUp">
+        <view class="flex-center">
+          <image class="item-icon" src="/static/images/my/sign.png"></image>
+          <text>我的报名</text>
+        </view>
+        <image class="item-right" src="/static/images/my/right.png"></image>
+      </view>
+      
+      <view class="menu-itme" bindtap="gotoAppointment">
+        <view class="flex-center">
+          <image class="item-icon" src="/static/images/my/appointment.png"></image>
+          <text>我的预约</text>
+        </view>
+        <image class="item-right" src="/static/images/my/right.png"></image>
+      </view>
+      <view class="menu-itme" bindtap="gotoScheduling">
+        <view class="flex-center">
+          <image class="item-icon" src="/static/images/my/scheduling.png"></image>
+          <text>我的排班</text>
+        </view>
+        <image class="item-right" src="/static/images/my/right.png"></image>
+      </view>
+    </view>
+  
+  </view>
+
+</view>

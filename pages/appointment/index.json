@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "backgroundColor":"",
+  "navigationBarTextStyle":"black",
+  "navigationBarTitleText":"场馆预约",
+  "navigationBarBackgroundColor":"#ffffff",
+  "enablePullDownRefresh":true
+}

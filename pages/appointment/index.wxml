@@ -1,0 +1,28 @@
+<!--pages/appointment/index.wxml-->
+<view>
+<scroll-view scroll-y >
+  <view class="lists">
+      <block wx:for="{{lists}}" wx:key="index">
+      
+        <view class="items" bindtap="gotoDetail" data-id="{{item.id}}">
+          <image class="thumbnail_image" src="{{item.thumbnail_image}}"></image>
+          <view class="items-desc">
+            <view class="items-left">
+              <text>{{item.name}}</text>
+              <view style="margin-top: 10rpx;">
+                <image class="address" src="/static/images/appointment/address.png"></image>
+                <text class="item-address">{{item.address}}</text>
+              </view>
+            </view>
+            <view class="item-right">
+                <view class="right-button">立即预约</view>
+            </view>
+          </view>
+        </view>
+      
+      </block>
+
+  </view>
+
+</scroll-view>
+</view>

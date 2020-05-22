@@ -1,0 +1,35 @@
+/* pages/appointment/examine/index.wxss */
+.examine{
+  margin-top: 170rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.examine>text{
+  
+  margin-top: 40rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(129,129,129,1);
+}
+.background{
+  width: 276rpx;
+  height: 322rpx;
+}
+.button{
+  margin-top: 140rpx;
+  width:300rpx;
+  height:88rpx;
+  border:1px solid rgba(72,71,66,1);
+  border-radius:44rpx;
+
+  text-align: center;
+  line-height: 88rpx;
+
+  font-size:34rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(74,74,74,1);
+}

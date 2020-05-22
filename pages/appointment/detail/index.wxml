@@ -1,0 +1,46 @@
+<!--pages/appointment/detail/index.wxml-->
+<view class="detail-info">
+<scroll-view scroll-y class="scroll-view">
+  <swiper class="swiper"  indicator-dots="true" autoplay="true" 
+    circular="true" interval="3000">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+          <image  src="{{item}}" ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="detail">
+    <view class="title">{{detail.name}}</view>
+    <view class="detail-address">
+      <image class="address" src="/static/images/appointment/address.png"></image>
+      <text class="item-address">{{detail.address}}</text>
+    </view>
+    <view class="autograph">
+      <block wx:for="{{detail.label_ids}}" wx:key="index">
+         <view class="label" style="border-color:{{item.color}},color:{{item.color}}">{{item.name}}</view>
+      </block>
+      <!-- <view class="label">篮球</view>
+      <view class="label">游泳</view>
+      <view class="label">集会</view> -->
+    </view>
+    <view class="line"></view>
+    <view class="title-h1">
+      <view class="detail-line"></view>
+      <text class="detail-text">招募详情</text>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{detail.content}}"></rich-text>
+    </view>
+    <!-- <view class="content-image">
+      <image src="/static/images/appointment/detail.png" mode="widthFix"  ></image>
+    </view> -->
+  </view>
+
+</scroll-view>
+
+  <view class="button">
+    <view class="appointment" bindtap="apply">立即预约</view>
+  </view>
+
+
+</view>

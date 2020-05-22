@@ -1,0 +1,93 @@
+<view class="background">
+  <view class="from">
+
+    <view class="item">
+      <text>姓名</text>
+      <input type="text"  maxlength="20" class="weui-input" auto-focus placeholder="未填写"  bindinput="inputName" />
+    </view>
+    <view class="item">
+      <text>性别</text>
+      <view class="weui-input item-radio">
+        <view class="sex" bindtap="changeSex" data-sex="1">
+          <image wx:if="{{sex==1}}" src="/static/images/radio_checked.png"></image>
+          <image wx:else src="/static/images/radio.png"></image>
+          <text style="color:{{sex==1?'#C82519':''}}">男</text>
+        </view>
+        <view class="sex" bindtap="changeSex" data-sex="2">
+          <image wx:if="{{sex==2}}" src="/static/images/radio_checked.png"></image>
+          <image wx:else  src="/static/images/radio.png"></image>
+          <text style="color:{{sex==2?'#C82519':''}}">女</text>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <text>年龄</text>
+      <input type="text"   maxlength="20" class="weui-input" auto-focus placeholder="未填写" bindinput="inputAge" />
+    </view>
+    <view class="item">
+      <text>联系电话</text>
+      <input type="number"  maxlength="11" class="weui-input"  placeholder="未填写"   bindinput="inputPhone"/>
+    </view>
+    <view class="item">
+      <text>申报类型</text>
+      <view class="weui-input item-radio">
+        <view class="sex" bindtap="changeDeclare" data-sex="1">
+          <image wx:if="{{declare==1}}" src="/static/images/radio_checked.png"></image>
+          <image wx:else src="/static/images/radio.png"></image>
+          <text style="color:{{declare==1?'#C82519':''}}">成人</text>
+        </view>
+        <view class="sex" bindtap="changeDeclare" data-sex="2">
+          <image wx:if="{{declare==2}}" src="/static/images/radio_checked.png"></image>
+          <image wx:else  src="/static/images/radio.png"></image>
+          <text style="color:{{declare==2?'#C82519':''}}">学生</text>
+        </view>
+      </view>
+    </view>
+    <block  wx:if="{{declare==1}}">
+       <view class="item">
+      <text>申报人单位</text>
+      <input type="text" maxlength="30" class="weui-input" placeholder="未填写" bindinput="inputCompany" />
+    </view>
+     <view class="item">
+      <text>成人申报岗位</text>
+      <picker mode="selector" bindchange="bindApplyType" range="{{AdultPosition}}">
+        <view class="picker">
+            <block wx:if="{{chengren == ''}}">
+              <text>请选择</text><image src="/static/images/down_arrow.png"></image>
+            </block>
+            {{chengren}}
+          </view>
+        </picker>
+      </view>
+    </block>
+    <block wx:if="{{declare==2}}">
+      <view class="item">
+        <text>学校</text>
+        <input type="text"  maxlength="20" class="weui-input" auto-focus placeholder="未填写" bindinput="inputSchool" />
+      </view>
+      <view class="item">
+        <text>班级</text>
+        <input type="text"  maxlength="20" class="weui-input" auto-focus placeholder="未填写" bindinput="inputClass" />
+      </view>
+      <view class="item">
+        <text>学生申报岗位</text>
+        <picker mode="selector" bindchange="bindApplyTypeStudent" range="{{studentPosition}}">
+          <view class="picker">
+            <block wx:if="{{student == ''}}">
+              <text>请选择</text><image src="/static/images/down_arrow.png"></image>
+            </block>
+            {{student}}
+          </view>
+        </picker>
+      </view>
+    </block>
+    
+  
+  </view>
+  <view class="buttom">
+    <view class="submit" bindtap="submit">
+      提交
+    </view>
+
+  </view>
+</view>

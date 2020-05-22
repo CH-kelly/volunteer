@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "calendar":"/components/calendar/index"
+  },
+  "backgroundColor":"",
+  "navigationBarTextStyle":"white",
+  "navigationBarTitleText":"我的排班",
+  "navigationBarBackgroundColor":"#F52A46",
+  "backgroundTextStyle":"dark",
+  "enablePullDownRefresh":true
+}

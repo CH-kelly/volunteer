@@ -1,0 +1,34 @@
+<view>
+    <view class="header">
+    <view class="flex header-h1">
+      <view class="header-title">
+        <text bindtap='lastMonth'>{{'<'}}</text>
+        <text class="title-h1">{{calendarTitle}}</text>
+        <text bindtap='nextMonth'>{{'>'}}</text>
+      </view>
+      <image bindtap="clickCalendar" class="calendar-icon" src="/static/images/calendar.png"></image>
+    </view>
+    <view class="line"></view>
+    <view class="flex week">
+      <block wx:for="{{week}}" wx:key="index">
+        <view class="week-lists">
+          <view class="days-item">
+            <text class="days-title">{{item}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="flex days {{isShow==true?'':'days-hidden'}}">
+      <block wx:for="{{calendarDays}}" wx:key="index">
+        <view class="days-lists" data-index='{{index}}' bindtap='clickDate'>
+          <view class="days-item">
+            <image wx:if="{{item.current == true}}" class="select" src="/static/images/select.png"></image>
+            <text class="days-title  {{item.current == true? 'active' : ''}} {{item.selected ? '':'text-gray'}}">{{item.date}}</text>
+          </view>
+          <view  wx:if="{{item.today == true}}" class="days-desc">今天</view>
+        </view>
+      </block>
+    </view>
+    
+  </view>
+</view>

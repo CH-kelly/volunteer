@@ -1,0 +1,75 @@
+{
+  "pages":[
+
+    "pages/index/index",
+    
+    "pages/home/index",
+    "pages/auto/index",
+
+    "pages/volunteer/index",
+    "pages/volunteer/detail/index",
+    "pages/volunteer/apply/index",
+    
+    
+    "pages/appointment/index",
+    "pages/appointment/detail/index",
+    "pages/appointment/apply/index",
+    "pages/appointment/examine/index",
+
+
+    "pages/logs/logs"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位签到"
+    }
+  },
+  "tabBar": {
+    "borderStyle":"black",
+    "color":"#999999",
+    "selectedColor":"#595E6D",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "iconPath":"/static/images/icon/index.png",
+      "selectedIconPath":"/static/images/icon/index_ac.png",
+      "text": "首页"
+    },{
+      "pagePath": "pages/volunteer/index",
+      "iconPath":"/static/images/icon/volunteer.png",
+      "selectedIconPath":"/static/images/icon/volunteer_ac.png",
+      "text": "志愿者"
+    },{
+      "pagePath": "pages/appointment/index",
+      "iconPath":"/static/images/icon/appointment.png",
+      "selectedIconPath":"/static/images/icon/appointment_ac.png",
+      "text": "场馆预约"
+    },{
+      "pagePath": "pages/home/index",
+      "iconPath":"/static/images/icon/home.png",
+      "selectedIconPath":"/static/images/icon/home_ac.png",
+      "text": "我的"
+    }
+  ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "subPackages": [
+    {
+      "root": "pages/home/pages",
+      "pages": [
+        "signUp/index",
+        "appointment/index",
+        "scheduling/index",
+        "evaluate/index",
+        "editInfo/index"
+      ]
+     }
+  ],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

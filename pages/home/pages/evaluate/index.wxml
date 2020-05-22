@@ -1,0 +1,11 @@
+<view class="evaluate">
+ <text class="title">管理员对您本次预约场馆进行了评价：</text>
+ <view class="line"></view>
+ <view class="start">
+  <image  src="/static/images/start_bright.png"></image>
+  <image src="/static/images/start_bright.png"></image>
+  <image src="/static/images/start_bright.png"></image>
+  <image src="/static/images/start.png"></image>
+ </view>
+ <text class="content">贵公司本次使用场馆后对场馆保护较好，且在中途发生事故后能以良好态度配合我方进行处理，实为难得！</text>
+</view>

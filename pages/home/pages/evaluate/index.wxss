@@ -1,0 +1,26 @@
+.evaluate{
+  padding: 30rpx;
+}
+.title{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+}
+.line{
+  margin: 10rpx 0 20rpx 0;
+  width:690rpx;
+  height:1rpx;
+  background:rgba(238,238,238,1);
+}
+.start>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.content{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  line-height:44rpx;
+}

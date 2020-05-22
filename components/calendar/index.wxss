@@ -1,0 +1,95 @@
+/* components/calendar/index.wxss */.index{
+  background: #F5F5F5;
+  height: 100vh;
+}
+.header{
+  padding: 10rpx 30rpx;
+  background: #F52A46;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  
+  box-shadow:0px 10rpx 24rpx 6rpx rgba(159,36,53,0.3);
+  border-radius:0px 0px 30rpx 30rpx;
+}
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-h1{
+  margin: 0 20rpx;
+}
+
+.header-h1{
+  position: relative;
+}
+.calendar-icon{
+  position: absolute;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+}
+.line{
+  height: 1rpx;
+  background:rgba(255,255,255,0.3);
+  margin: 10rpx 0 35rpx 0;
+}
+
+
+.week{
+  font-size: 28rpx;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color:rgba(255,255,255,0.3) !important;
+}
+
+
+.days{
+  font-size: 32rpx;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color:rgba(255,255,255,1);
+  margin: 20rpx 0 0 0;
+  
+}
+.week-lists{
+  width: 14%;
+}
+.days-lists{
+  height: 90rpx;
+  width: 14%;
+}
+.days-item{
+  position: relative;
+  width: 58rpx;
+  height: 58rpx;
+}
+.active{
+  color: #000000 !important;
+}
+.days-title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.days-desc{
+  font-size:22rpx;
+  font-weight:400;
+  color: rgba(255, 255, 255, 0.6);
+}
+.select{
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.text-gray{
+  color: rgba(255, 255, 255, 0.4);
+}
+.days-hidden{
+  height: 100rpx;
+  overflow: hidden;
+}

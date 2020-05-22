@@ -1,0 +1,85 @@
+<view class="detail-info">
+<scroll-view scroll-y class="{{isSign>=1?'':'scroll-view'}}">
+  <swiper class="swiper"  indicator-dots="true" autoplay="true" 
+    circular="true" interval="3000">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+          <image  src="{{item}}" ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="detail">
+    <view class="title">{{detail.name}}</view>
+    <view class="detail-address">
+      <view class="item-address">活动开始时间：<text>{{detail.starttime}}</text></view>
+      <view class="item-address">报名截止时间：<text>{{detail.endtime}}</text></view>
+    </view>
+    <view class="line"></view>
+
+    <view class="number-people">
+        <view class="demand">
+          <view class="item-address">招募人数：<text style="color:#F52945">{{detail.sign_up}}</text>/<text>{{detail.number}}</text></view>
+          <view class="item-address">性别要求：<text>{{detail.sex_data}}</text></view>
+          <view class="item-address">年龄要求：<text>{{detail.age}}</text></view>
+        </view>
+        <view class="item-address">工作地址：<text>{{detail.address}}</text></view>
+    </view>
+    <view class="line"></view>
+
+    <block wx:if="{{isSign >= 1}}">
+    
+      <view class="sign-in">
+        <view class="sign-left"> 
+          <view class="sign-title">
+            <view class="sign-titleh1">志愿者签到</view>
+            <view class="sign-time">签到时间：{{startsignin}}</view>
+          </view>
+          <view wx:if="{{isShowSingIn == 1 && signInCountDown!=0}}" class="sign-button  sing-exit" >点击签到</view>
+          <view wx:if="{{isShowSingIn == 1 && signInCountDown==0}}" class="sign-button" bindtap="clickSignIn">点击签到</view>
+          <view wx:if="{{isShowSingIn != 1}}"  class="sign-button is-signed">
+            <text>{{signIn.status}}</text>
+            <text>{{signIn.createtime}}</text>
+          </view>
+        </view>
+        
+        <view class="line sign-line"></view>
+
+        <view class="sign-left"> 
+          <view class="sign-title">
+            <view class="sign-titleh1">志愿者签退</view>
+            <view class="sign-time">签退时间：{{endsignin}}</view>
+          </view>
+          <view wx:if="{{isShowSingOut == 1 && signOutCountDown!=0}}"  class="sign-button sing-exit">点击签退</view>
+          <view wx:if="{{isShowSingOut == 1 && signOutCountDown==0}}" class="sign-button" bindtap="clickSignOut">点击签退</view>
+          <view wx:if="{{isShowSingOut != 1}}" class="sign-button is-signed">
+            <text>{{signOut.status}}</text>
+            <text>{{signOut.createtime}}</text>
+          </view>
+        </view>
+
+      </view>
+      
+    </block>
+
+    <view class="title-h1">
+      <view class="detail-line"></view>
+      <text class="detail-text">招募详情</text>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{detail.content}}"></rich-text>
+    </view>
+    <!-- <view class="content-image">
+      <image src="/static/images/appointment/detail.png" mode="widthFix"  ></image>
+    </view> -->
+  </view>
+
+</scroll-view>
+
+    <block wx:if="{{isSign == 0}}">
+        <view class="button">
+          <view class="appointment" bindtap="apply" data-id="{{detail.id}}">我要报名</view>
+        </view>
+    </block>
+
+
+</view>

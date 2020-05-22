@@ -1,0 +1,65 @@
+/* pages/appointment/index.wxss */
+.lists{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.items{
+  width: 690rpx;
+  border-radius:30rpx;
+  height: 500rpx;
+  background: skyblue;
+  
+  box-shadow:0px 6rpx 10rpx 0px #D3D3D3;
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+.items>image{
+  height: 360rpx;
+  width: 100%;
+  vertical-align: middle;
+}
+.items-desc{
+  height: 140rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
+.items-desc>text{
+  
+font-size:34rpx;
+font-family:PingFang SC;
+font-weight:bold;
+color:rgba(0,0,0,1);
+}
+.items-left{
+  width: 70%;
+}
+.item-address{
+font-size:24rpx;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(102,102,102,1);
+}
+.address{
+  width:17rpx;
+  height:22rpx;
+  margin-right: 10rpx;
+}
+.right-button{
+  width:160rpx;
+  height:80rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(245,42,70,1);
+  border-radius:20rpx;
+  text-align: center;
+  line-height: 80rpx;
+  
+  font-size:34rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(246,39,68,1);
+}

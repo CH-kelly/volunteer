@@ -1,0 +1,33 @@
+<!--pages/volunteer/index.wxml-->
+<view class="background">
+11111
+  <scroll-view scroll-y>
+  <view class="lists">
+    <block wx:for="{{lists}}" wx:key="index">
+    
+      <view class="item" bindtap="gotoDetail" data-id="{{item.id}}">
+        <image class="item-image" src="{{item.thumbnail_image}}"></image>
+        <view class="desc">
+          <view class="title">{{item.name}}</view>
+          <view class="title2">
+            <text class="date">{{item.starttime}}</text>
+            <image class="desc-icon" src="/static/images/right.png"></image>
+          </view>
+        </view>
+      </view>
+
+    </block>
+  </view>
+  </scroll-view>
+
+  <!-- 我的排班 -->
+  <view class="FloatFrame">
+    <view class="float-left" bindtap="clickFloatLeft">
+      <image class="float-icon" src="/static/images/scheduling.png"></image>
+    </view>
+    <view class="float-right" wx:if="{{isShowFloat==true}}"  bindtap="gotoScheduling">
+      我的排班
+    </view>
+  </view>
+
+</view>

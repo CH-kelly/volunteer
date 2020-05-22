@@ -1,0 +1,121 @@
+<view style="background:#f2f2f2">
+  <scroll-view scroll-y class="{{isSign==1?'':'scroll-view'}}">
+    <swiper class="swiper"  autoplay  interval="3000" 
+    previous-margin="46rpx" next-margin="30rpx"
+    indicator-dots="{{false}}"
+    circular="true"
+    >
+      <block wx:for="{{banner}}" wx:key="*this">
+        <swiper-item>
+            <image mode="aspectFill"  src="{{item}}" ></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="center">
+    <!-- 志愿者招募 -->
+        <view class="volunteer">
+          <view class="header flex">
+            <view class="left flex">
+              <view class="line"></view>
+              <text class="title">志愿者招募</text>
+            </view>
+            <view class="right flex" bindtap="volunteerMore">
+              <text>更多</text>
+              <image src="/static/images/right_red.png"></image>
+            </view>
+          </view>
+          <view class="lists">
+              <block wx:for="{{activity}}" wx:key="index">
+              
+                <view class="item" bindtap="gotoActivityDetail" data-id="{{item.id}}">
+                  <image class="item-image" src="{{item.thumbnail_image}}"></image>
+                  <view class="desc">
+                    <view class="title">{{item.name}}</view>
+                    <view class="title2">
+                      <text class="date">{{item.createtime}}</text>
+                      <image class="desc-icon" src="/static/images/right.png"></image>
+                    </view>
+                  </view>
+                </view>
+
+              </block>
+          </view>
+        </view>
+        <!-- 场馆预约 -->
+         <view class="venue">
+          <view class="header flex">
+            <view class="left flex">
+              <view class="line"></view>
+              <text class="title">场馆预约</text>
+            </view>
+            <view class="right flex" bindtap="venueMore">
+              <text>更多</text>
+              <image src="/static/images/right_red.png"></image>
+            </view>
+          </view>
+          
+          <view class="venue-lists">
+            <scroll-view  scroll-x="true" class="venue-lists" >
+              <view class="flex scroll-view">
+                <block  wx:for="{{venue}}" wx:key="index">
+                  <view class="venue-item" >
+                    <image class="venue-image" src="{{item.thumbnail_image}}"></image>
+                    <view class="venue-desc flex">
+                      <view class="venue-left">
+                        <text>{{item.name}}</text>
+                        <view class="venue-address flex">
+                          <image class="address" src="/static/images/appointment/address.png"></image>
+                          <text>{{item.address}}</text>
+                        </view>
+                      </view>
+                      <view class="venue-button"  bindtap="gotoVenueDetail" data-id="{{item.id}}">立即预约</view>
+                    </view>
+                  </view>
+                </block>
+                <!-- <view class="venue-item">
+                  <image class="venue-image" src="/static/images/venue.png"></image>
+                  <view class="venue-desc flex">
+                    <view class="venue-left">
+                      <text>上海十方明亮体育馆</text>
+                      <view class="venue-address flex">
+                        <image class="address" src="/static/images/appointment/address.png"></image>
+                        <text>上海市徐汇区爱国路36号</text>
+                      </view>
+                    </view>
+                    <view class="venue-button">立即预约</view>
+                  </view>
+                </view> -->
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+        <!-- 往期活动 -->
+        <view class="activity">
+            <view class="header flex">
+              <view class="left flex">
+                <view class="line"></view>
+                <text class="title">往期活动</text>
+              </view>
+              <view class="right flex">
+              </view>
+            </view>
+            <view class="activity-center">
+              <block  wx:for="{{oldactivity}}" wx:key="index">
+                <view class="activity-item">
+                    <image class="activity-image" src="{{item.thumbnail_image}}"></image>
+                    <text class="title">{{item.name}}</text>
+                    <view class="flex activity-desc">
+                        <text class="date">{{item.createtime}}</text>
+                        <image class="desc-icon" src="/static/images/right.png"></image>
+                    </view>
+                </view>
+              </block>
+            </view>
+        </view>
+    </view>
+
+  </scroll-view>
+
+
+</view>

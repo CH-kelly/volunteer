@@ -1,0 +1,34 @@
+<view class="index">
+  <calendar  bindmyevent="onMyEvent" bindclickcalendar="onClickCalendar"></calendar>
+    
+    <view class="lists">
+        <scroll-view scroll-y 
+        style="height: calc(100vh - {{height}}rpx)"
+          bindscrolltolower="loadMore"
+        >
+            <block wx:for="{{lists}}" wx:key="index" >
+              <view class="lists-item"  bindtap="gotoDetail" data-id="{{item.id}}">
+                <view class="flex lists-title">
+                  <image class="lists-image" src="{{item.thumbnail_image}}"></image>
+                  <text class="title-h2">{{item.activitname}}</text>
+                </view>
+                <view class="lists-line"></view>
+                <view class="address">
+                  工作地点：{{item.address}}
+                </view>
+                <view class="flex workTimer">
+                  <view>工作时间：</view>
+                  <view class="address-right">
+                    <view>{{item.starttime}}</view>
+                    <view>至</view>
+                    <view>{{item.endtime}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+        </scroll-view>
+
+    </view>
+  
+
+</view>
