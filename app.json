@@ -7,9 +7,16 @@
     "pages/auto/index",
 
     "pages/volunteer/index",
+    "pages/volunteer/detail/index",
+    "pages/volunteer/apply/index",
     
     
     "pages/appointment/index",
+    "pages/appointment/detail/index",
+    "pages/appointment/identity/index",
+    "pages/appointment/choiceTime/index",
+    "pages/appointment/apply/index",
+    "pages/appointment/examine/index",
 
 
     "pages/logs/logs"
@@ -57,38 +64,11 @@
     {
       "root": "pages/home/pages",
       "pages": [
-        "signUp/index"
-      ]
-     },
-     {
-      "root": "pages/subPackages/pages",
-      "pages": [
+        "signUp/index",
+        "appointment/index",
+        "scheduling/index",
         "evaluate/index",
         "editInfo/index"
-      ]
-     },
-     {
-      "root": "pages/subPackages1/pages",
-      "pages": [
-        "appointment/index",
-        "scheduling/index"
-      ]
-     },
-     {
-      "root": "pages/appointment/pages",
-      "pages": [
-        "detail/index",
-        "identity/index",
-        "choiceTime/index",
-        "apply/index",
-        "examine/index"
-      ]
-     },
-     {
-      "root": "pages/volunteer/pages",
-      "pages": [
-         "detail/index",
-         "apply/index"
       ]
      }
   ],

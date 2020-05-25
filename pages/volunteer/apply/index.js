@@ -1,6 +1,8 @@
 // pages/volunteer/apply/index.js
 const app = getApp();
-const apiServer = require("../../../../utils/request")
+// const apiServer = require("../../../../utils/request")
+
+const apiServer = require("../../../utils/request")
 Page({
 
   /**
@@ -215,6 +217,8 @@ Page({
               })
             }, 3000);
           }
+    },err=>{
+      console.log(err);
     })
   },
   /**
