@@ -35,7 +35,6 @@ Page({
   getLists(page){
     var that = this;
     apiServer.get("/Activity/index",{offset:page}).then(res=>{
-      console.log(res);
       if(res.code === 1){
         let lists = that.data.lists;
         if(page > 0){
@@ -65,7 +64,6 @@ Page({
   },
   gotoDetail(e){
     let id = e.currentTarget.dataset.id
-    console.log(id);
     wx.navigateTo({
       url: '/pages/volunteer/detail/index?id='+id,
     })

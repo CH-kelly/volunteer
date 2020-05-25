@@ -40,13 +40,25 @@ Page({
 
   },
   apply(){
-    wx.navigateTo({
-      url: '/pages/appointment/apply/index',
-    })
+    //选择身份
+    let token = wx.getStorageSync('token');
+    let uid = wx.getStorageSync('uid');
+    if(token && uid){
+      wx.navigateTo({
+        url: '/pages/appointment/identity/index?venue_id='+this.data.id,
+      })
+    }else{
+     app.showmessage('请先登录');
+     setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/auto/index/',
+      })
+     }, 3000);
+    }
+
   },
   getDetail(){
     apiServer.get("/Venue/getinfo",{id:this.data.id}).then(res=>{
-      console.log(res);
       app.showmessage(res.msg);
       if(res.code === 1){
         this.setData({

@@ -1,0 +1,28 @@
+<!--pages/appointment/apply/index.wxml-->
+<view class="background">
+  <view class="from">
+
+    <view class="item">
+      <text>校内人员</text>
+      <view class="weui-input item-radio sex" bindtap="changeIdentity" data-id="1">
+        <image wx:if="{{id==1}}" src="/static/images/radio_checked.png"></image>
+        <image wx:else src="/static/images/radio.png"></image>
+      </view>
+    </view>
+    <view class="item">
+      <text>校外人员</text>
+      <view class="weui-input  item-radio sex" bindtap="changeIdentity" data-id="2">
+        <image wx:if="{{id==2}}" src="/static/images/radio_checked.png"></image>
+        <image wx:else src="/static/images/radio.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="buttom">
+    <view class="desc"> *校内人员可以预约周一至周五</view>
+    <view class="desc">校外人员可以预约周六周日</view>
+    <view class="submit" bindtap="submit">
+      下一步
+    </view>
+
+  </view>
+</view>

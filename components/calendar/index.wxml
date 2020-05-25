@@ -20,7 +20,7 @@
     </view>
     <view class="flex days {{isShow==true?'':'days-hidden'}}">
       <block wx:for="{{calendarDays}}" wx:key="index">
-        <view class="days-lists" data-index='{{index}}' bindtap='clickDate'>
+        <view class="days-lists" data-index='{{index}}' bindtap="{{item.selected == true ? 'clickDate' : ''}}">
           <view class="days-item">
             <image wx:if="{{item.current == true}}" class="select" src="/static/images/select.png"></image>
             <text class="days-title  {{item.current == true? 'active' : ''}} {{item.selected ? '':'text-gray'}}">{{item.date}}</text>

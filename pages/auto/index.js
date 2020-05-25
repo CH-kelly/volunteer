@@ -17,14 +17,12 @@ Page({
 
   },
   bindGetUserInfo(e){
-    console.log(e);
     var that = this;
     wx.login({
       success (res) {
         console.log(res)
         if (res.code) {
           apiServer.get("/wxapp/login",{code:res.code}).then(res=>{
-            console.log(res);
             if(res.code === 1){
               let openid = res.data.openid;
               app.globalData.openid = openid;
@@ -39,7 +37,6 @@ Page({
                 }
                 //授权登录
                 apiServer.post("/wxapp/auth",data).then(res=>{
-                  console.log(res);
                   if(res.code == 1){
                       that.get_user_info(openid)
                       app.globalData.openid = res.data.openid;

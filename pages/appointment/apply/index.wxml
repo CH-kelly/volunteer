@@ -4,68 +4,53 @@
 
     <view class="item">
       <text>姓名</text>
-      <input type="text"  maxlength="20" class="weui-input" auto-focus placeholder="未填写"/>
+      <input type="text"  maxlength="20" class="weui-input"  placeholder="未填写" bindinput="inputName" />
     </view>
     <view class="item">
       <text>单位</text>
-      <input type="text"   maxlength="20" class="weui-input"  placeholder="未填写"/>
+      <input type="text"   maxlength="20" class="weui-input"  placeholder="未填写" bindinput="inputCompany" />
     </view>
     <view class="item">
       <text>用途</text>
-      <input type="text"   maxlength="20" class="weui-input" placeholder="未填写"/>
+      <input type="text"   maxlength="20" class="weui-input" placeholder="未填写" bindinput="inputPurpose" />
     </view>
+
     <view class="item">
       <text>使用人数</text>
-      <input type="number"  maxlength="10" class="weui-input"  placeholder="未填写"/>
+      <input type="number"  maxlength="10" class="weui-input"  placeholder="未填写" bindinput="inputNumber" />
     </view>
     <view class="item">
       <text>联系电话</text>
-      <input type="number" bindinput="inputPhone"  maxlength="11" class="weui-input"  placeholder="未填写" />
+      <input type="number" maxlength="11" class="weui-input"  placeholder="未填写" bindinput="inputPhone"  />
     </view>
-    <view class="item">
-      <text>选择类型</text>
-      <picker bindchange="bindApplyType" value="{{index}}" range="{{array}}">
-        <view class="picker">
-          {{array[index]}}
-        </view>
-      </picker>
+    <view class="item" >
+      <text>使用时间</text>
+      <view bindtap="choiceTime" wx:if="{{time == ''}}">去选择{{'>'}}</view>
+      <view bindtap="choiceTime" wx:else >{{time}}</view>
     </view>
-    <view class="item">
-      <text>选择时间</text>
+    <view class="item" wx:if="{{timeslot.length>0}}">
+      <text>课时</text>
+      <view class="weui-input">
+        <block wx:for="{{timeslot}}" wx:key="index">
+            {{item}}
+        </block>
+      </view>
     </view>
-    <!-- <view class="item">
-      <text>开始使用时间</text> -->
-      <!-- <picker mode="date" value="{{startTime}}" bindchange="bindDateChange">
-        <view class="picker">
-          {{startTime}}
-        </view>
-      </picker> -->
-      <!-- <input maxlength="20" class="weui-input" auto-focus placeholder="未填写"/> -->
-    <!-- </view>
-    <view class="item">
-      <text>结束使用时间</text>
-      <picker mode="date"  bindchange="bindDateChange1">
-        <view class="picker">
-          当前选择: {{endTime}}
-        </view>
-      </picker>
-    </view> -->
-  
   </view>
   <view class="buttom">
-    <view class="agreement" bindtap="clickAgree" data-type="1">
-      <view class="checkbox  {{agree1 == true ? 'active' : ''}}">
+    <view class="agreement" >
+      <view class="checkbox  {{agree1 == true ? 'active' : ''}}" bindtap="clickAgree" data-type="1">
         <image wx:if="{{agree1 == true }}" class="checkbox-icon" src="/static/images/appointment/hook.png"></image>
       </view>
       <text class="read">请阅读并勾选</text>
-      <text class="important">《预约须知》</text>
+      <text class="important" bindtap="agreement"  data-type="1">《预约须知》</text>
     </view>
-    <view class="agreement "  bindtap="clickAgree2"  data-type="2">
-      <view class="checkbox {{agree2 === true ? 'active' : ''}}">
+    <view class="agreement " >
+      <view class="checkbox {{agree2 === true ? 'active' : ''}}"  bindtap="clickAgree2"  data-type="2">
         <image  wx:if="{{agree2 == true }}" class="checkbox-icon" src="/static/images/appointment/hook.png"></image>
       </view>
       <text class="read">请阅读并勾选</text>
-      <text class="important">《使用须知》</text>
+      <text class="important"  bindtap="agreement"  data-type="0">《使用须知》</text>
     </view>
     <view class="submit" bindtap="submit">
       提交

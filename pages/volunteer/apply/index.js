@@ -48,7 +48,6 @@ Page({
   },
   get_position(){
     apiServer.get("/Activity/user_type").then(res=>{
-      console.log(res);
       if(res.code==1){
         this.setData({
           studentPosition:res.data.student,
@@ -100,7 +99,6 @@ Page({
   bindApplyType(e){   //选择成人申报岗位
     let index = e.detail.value;
     let chengren = this.data.AdultPosition[index];
-    console.log(chengren,index);
     this.setData({
       chengren:chengren
     })
@@ -108,7 +106,6 @@ Page({
   bindApplyTypeStudent(e){   //选择学生申报岗位
     let index = e.detail.value;
     let chengren = this.data.studentPosition[index];
-    console.log(chengren,index);
     this.setData({
       student:chengren
     })
@@ -173,7 +170,6 @@ Page({
     let company = this.data.company
     let school = this.data.school
     let classs = this.data.classs
-    console.log(type === 1);
     if(type === 1){
       if(!company){
         app.showmessage('请输入申报人单位');
@@ -209,9 +205,7 @@ Page({
       age,
       company:type==1?company:''
     };
-    console.log(data);
     apiServer.post("/Activity/submit",data).then(res=>{
-      console.log(res);
           app.showmessage(res.msg);
           if(res.code == 1){
             setTimeout(() => {

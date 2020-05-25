@@ -13,6 +13,8 @@
     
     "pages/appointment/index",
     "pages/appointment/detail/index",
+    "pages/appointment/identity/index",
+    "pages/appointment/choiceTime/index",
     "pages/appointment/apply/index",
     "pages/appointment/examine/index",
 

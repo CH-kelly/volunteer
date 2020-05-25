@@ -1,6 +1,5 @@
 <!--pages/volunteer/index.wxml-->
 <view class="background">
-11111
   <scroll-view scroll-y>
   <view class="lists">
     <block wx:for="{{lists}}" wx:key="index">

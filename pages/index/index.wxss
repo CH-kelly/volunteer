@@ -5,10 +5,15 @@
 .swiper image{
   width: 660rpx;
   height: 340rpx;
+  border-radius: 40rpx;
 }
 .flex{
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.scroll-view{
+  display: flex;
   justify-content: space-between;
 }
 .center{
@@ -170,6 +175,7 @@ color:rgba(0,0,0,1);
   height:320rpx;
 }
 .activity-item{
+  margin-top: 30rpx;
   background: #ffffff;
   border-radius: 30rpx;
   overflow: hidden;

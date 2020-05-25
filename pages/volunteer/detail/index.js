@@ -72,7 +72,6 @@ Page({
     let uid = app.globalData.uid || wx.getStorageSync('uid');
     let userInfo = app.globalData.userInfo || wx.getStorageSync('userInfo');
     let id = e.currentTarget.dataset.id
-    console.log(1,uid,userInfo);
     if(uid || userInfo.user_id){
       wx.navigateTo({
         url: '/pages/volunteer/apply/index?id='+id,
@@ -89,7 +88,7 @@ Page({
   },
   getDetail(){
     apiServer.post("/Activity/getinfo",{id:this.data.id}).then(res=>{
-      console.log(res);
+      app.showmessage(res.msg)
       if(res.code === 1){
         this.setData({
           detail:res.data,

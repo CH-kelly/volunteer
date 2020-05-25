@@ -1,55 +1,50 @@
 <view class="index">  
   <view class="header flex">
-    <view bindtap="clickHeader" data-id="1" class="{{current==1?'active':''}}">全部</view>
-    <view bindtap="clickHeader" data-id="2"  class="{{current==2?'active':''}}">审核中</view>
-    <view bindtap="clickHeader" data-id="3"  class="{{current==3?'active':''}}">审核通过</view>
-    <view bindtap="clickHeader" data-id="4"  class="{{current==4?'active':''}}">审核失败</view>
+    <view bindtap="clickHeader" data-id="3" class="{{current==3?'active':''}}">全部</view>
+    <view bindtap="clickHeader" data-id="0"  class="{{current==0?'active':''}}">审核中</view>
+    <view bindtap="clickHeader" data-id="1"  class="{{current==1?'active':''}}">审核通过</view>
+    <view bindtap="clickHeader" data-id="2"  class="{{current==2?'active':''}}">审核失败</view>
   </view>
 
   <view class="header-lists">
-    <scroll-view scroll-y>
+    <scroll-view scroll-y 
+    class="scroll-view"
+    refresher-enabled="true" 
+    refresher-triggered="{{triggered}}"
+    refresher-default-style="black" 
+    bindrefresherrefresh="bindrefresherrefresh"
+    bindrefresherabort="bindrefresherabort"
+    bindscrolltolower="loadMore"
+    >
+     <block wx:for="{{lists}}" wx:key="index">
+        
         <view class="item flex">
           <view class="item-left">
-            <image mode="aspectFill" src="/static/images/index1.png"></image>
+            <image mode="aspectFill" src="{{item.thumbnail_image}}"></image>
           </view>
           <view class="item-right">
             <view class="flex">
-                <view class="audit">审核中</view>
-                <view class="evaluate" bindtap="gotoEvaluate">
+                <view class="audit" wx:if="{{item.switch==0}}">审核中</view>
+                <view class="audit success" wx:if="{{item.switch==1}}">审核成功</view>
+                <view class="audit fail" wx:if="{{item.switch==2}}">审核失败</view>
+                <view class="evaluate" bindtap="gotoEvaluate" wx:if="{{item.switch==1}}" data-id="{{item.id}}">
                   评价
                     <view class="red_dot"></view>
                 </view>
             </view>
-            <view class="title">“音乐研习社”活动志愿者招募（成都地区）</view>
+            <view class="title">{{item.venuename}}</view>
             <view class="time">
-              <text class="start">活动开始时间：</text>
-              <text class="timer">2020 05-05 16:00</text>
+              <text class="start">开始使用时间：</text>
+              <text class="timer">{{item.yuyuetime}}</text>
             </view>
             <view class="time">
-              <text class="start">报名截止时间：</text>
-              <text class="timer">2020 05-05 16:00</text>
-            </view>
-          </view>
-        </view>
-
-        <view class="item flex">
-          <view class="item-left">
-            <image mode="aspectFill" src="/static/images/index1.png"></image>
-          </view>
-          <view class="item-right">
-            <view class="audit">审核中</view>
-            <view class="title">“音乐研习社”活动志愿者招募（成都地区）</view>
-            <view class="time">
-              <text class="start">活动开始时间：</text>
-              <text class="timer">2020 05-05 16:00</text>
-            </view>
-            <view class="time">
-              <text class="start">报名截止时间：</text>
-              <text class="timer">2020 05-05 16:00</text>
+              <text class="start"></text>
+              <text wx:if="{{item.timeslot}}" class="timer" bindtap="timeslot" data-timeslot="{{item.timeslot}}">{{item.timeslot}}</text>
             </view>
           </view>
         </view>
 
+    </block>
     </scroll-view>
   </view>
 

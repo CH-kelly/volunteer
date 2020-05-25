@@ -7,7 +7,7 @@
     >
       <block wx:for="{{banner}}" wx:key="*this">
         <swiper-item>
-            <image mode="aspectFill"  src="{{item}}" ></image>
+            <image mode="aspectFill"  src="{{item.image}}" ></image>
         </swiper-item>
       </block>
     </swiper>
@@ -57,7 +57,7 @@
           
           <view class="venue-lists">
             <scroll-view  scroll-x="true" class="venue-lists" >
-              <view class="flex scroll-view">
+              <view class="scroll-view">
                 <block  wx:for="{{venue}}" wx:key="index">
                   <view class="venue-item" >
                     <image class="venue-image" src="{{item.thumbnail_image}}"></image>
@@ -65,7 +65,7 @@
                       <view class="venue-left">
                         <text>{{item.name}}</text>
                         <view class="venue-address flex">
-                          <image class="address" src="/static/images/appointment/address.png"></image>
+                          <image  mode="aspectFit" class="address" src="/static/images/appointment/address.png"></image>
                           <text>{{item.address}}</text>
                         </view>
                       </view>
@@ -102,7 +102,7 @@
             </view>
             <view class="activity-center">
               <block  wx:for="{{oldactivity}}" wx:key="index">
-                <view class="activity-item">
+                <view class="activity-item" bindtap="gotoActivity" data-id="{{item.id}}">
                     <image class="activity-image" src="{{item.thumbnail_image}}"></image>
                     <text class="title">{{item.name}}</text>
                     <view class="flex activity-desc">

@@ -1,0 +1,10 @@
+var check = function (array,index){
+  if(array.indexOf(index) !== -1){
+    return true;
+  }
+  return false
+  
+}
+module.exports = {
+  check:check
+}

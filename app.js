@@ -2,6 +2,7 @@
 
 const apiServer = require("/utils/request")
 App({
+  events:null,
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -52,6 +53,10 @@ App({
   globalData: {
     userInfo: null,
     openid:null,
-    uid:0
+    token:'',
+    uid:0,
+    identityType:0,
+    timeslot:[],
+    timer:''
   }
 })

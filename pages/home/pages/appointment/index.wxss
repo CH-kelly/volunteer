@@ -8,8 +8,13 @@
   background: #F7F7F7;
   height: 100vh;
 }
+.scroll-view{
+  height: calc(100vh - 60rpx - 20rpx);
+}
 .header{
-  padding: 30rpx;
+   /* padding: 30rpx; */
+   height: 60rpx;
+   padding:0 30rpx; 
   font-size:30rpx;
   font-family:PingFang SC;
   font-weight:500;
@@ -17,6 +22,9 @@
   
   background: #ffffff;
   align-items: baseline;
+  
+  position: relative;
+  z-index: 1;
 }
 .header>view{
   height: 60rpx;
@@ -38,7 +46,11 @@
   background: #ffffff;
 }
 .item-left{
+  width: 30%;
   margin-right: 30rpx;
+}
+.item-right{
+  width: 70%;
 }
 .item-left>image{
   width:240rpx;
@@ -46,14 +58,23 @@
   border-radius:30rpx;
 }
 .audit{
+  padding: 4rpx 15rpx;
   font-size:28rpx;
   color:rgba(0,57,243,1);
-  width:100rpx;
+  /* width:100rpx; */
   height:34rpx;
   line-height: 34rpx;
   text-align: center;
   background:rgba(0,57,243,0.5);
   border-radius:10rpx;
+}
+.success{
+  color:rgba(0,192,113,1);
+  background:rgba(0,177,91,0.5);
+}
+.fail{
+  color:rgba(255,25,25,1);
+  background:rgba(226,0,0,0.5);
 }
 .title{
 margin: 10rpx 0 58rpx 0;
@@ -61,11 +82,17 @@ font-size:34rpx;
 color:rgba(0,0,0,1);
 }
 .start{
+  display: inline-block;
+width: 40%;
 font-size:24rpx;
 color:rgba(102,102,102,1);
 }
 .timer{
+
 font-size:28rpx;
+font-family:PingFang SC;
+font-weight:500;
+color:rgba(0,0,0,1);
 }
 
 /* 评价样式 */

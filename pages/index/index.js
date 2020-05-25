@@ -43,7 +43,6 @@ Page({
   getLists(){
     var that = this;
     apiServer.get("/index/index",{offset:0,limit:4}).then(res=>{
-      console.log(res);
       if(res.code === 1){
         that.setData({
           banner:res.data.banner,
@@ -52,6 +51,12 @@ Page({
           oldactivity:res.data.oldactivity,
         })
       }
+    })
+  },
+  gotoActivity(e){  //活动
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/volunteer/detail/index?id='+id,
     })
   },
   volunteerMore(){  //志愿者招募 - 更多
@@ -82,7 +87,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.getLists();
   },
 
   /**

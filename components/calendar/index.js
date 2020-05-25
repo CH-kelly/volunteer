@@ -1,10 +1,13 @@
 // components/calendar/index.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    type:{
+      type:Number
+    }
   },
 
   /**
@@ -47,22 +50,40 @@ Component({
       let date = e.getDate()
       let day = e.getDay() // 周几
       let days = new Date(year, month, 0).getDate() //当月天数(即下个月0号=当月最后一天)
-      
 
-      // 更新选择日期
-      this.data.selectDate = {
-        'year': year,
-        'month': month,
-        'date': date,
+      let type = app.globalData.identityType;
+
+      if(type ==0){
+        // 更新选择日期
+        this.data.selectDate = {
+          'year': year,
+          'month': month,
+          'date': date,
+        }
+        // 更新顶部显示日期
+        this.setData({
+        calendarTitle: year + "年" + (month > 9 ? month : "0" + month) + "月" + (date > 9 ? date : "0" + date)
+        })
+        
+        // 向父组件发送事件
+        let myEventDetail = this.data.selectDate
+        this.triggerEvent('myevent', myEventDetail)
+      }else{
+        // 更新选择日期
+        this.data.selectDate = {
+          'year': year,
+          'month': month,
+          'date': date+1,
+        }
+        // 更新顶部显示日期
+        this.setData({
+        calendarTitle: year + "年" + (month > 9 ? month : "0" + month) + "月" + ((date+1) > 9 ? (date+1) : "0" + (date+1))
+        })
+        
+        // 向父组件发送事件
+        let myEventDetail = this.data.selectDate
+        this.triggerEvent('myevent', myEventDetail)
       }
-      // 更新顶部显示日期
-      this.setData({
-      calendarTitle: year + "年" + (month > 9 ? month : "0" + month) + "月" + (date > 9 ? date : "0" + date)
-      })
-      
-      // 向父组件发送事件
-      let myEventDetail = this.data.selectDate
-      this.triggerEvent('myevent', myEventDetail)
       
       let calendarDays = []
       // 循环已过去的时间
@@ -78,26 +99,53 @@ Component({
           'selected': false
         })
       }
-  
+      // 当前日期
+      calendarDays.push({
+        'year': year,
+        'month': month,
+        'date': date,
+        'day':day,
+        'current': type == 0 ? true : false,
+        'today':true,
+        'selected': type == 0 ? true : false
+      })
+        
       // 当月显示的日期
       for (let i = 1; i <= days; i++) {
-        if(date <= i){
+        if(date < i){
           let day = new Date(year, month - 1, i).getDay();
 
+          let selected = false;
+          let current = false;
+          if([0,6].indexOf(day)!==-1 && type == 2){  //身份类型  1校内人员周一到周五  2校外人员可预约周六到周日
+            selected = true;
+            current = i==date+1;
+          }
+          if([1,2,3,4,5].indexOf(day)!==-1  && type == 1){  //身份类型  1校内人员周一到周五  2校外人员可预约周六到周日
+
+            selected = true;
+            current =  i==date+1;
+          }
+          if(type == 0){
+            selected = true;
+            current = i==date;
+          }
+          
+          
           calendarDays.push({
             'year': year,
             'month': month,
             'date': i,
             'day':day ,
-            'current': i==date,
-            'today':i==date,
-            'selected': true // 判断当前日期
+            'current':current ,
+            'today':false,
+            'selected': selected // 判断当前日期
           })
         }
         
       }
+      console.log(calendarDays)
   
-    
   
       // 下个月显示的天数及日期
       let lastDay = 36 - (calendarDays.length);
@@ -114,6 +162,7 @@ Component({
           'selected': false
         })
       }
+      // console.log(calendarDays);
       this.setData({
         calendarDays: calendarDays
       })
@@ -170,6 +219,7 @@ Component({
     }
   },
   attached:function(){  //组件完全初始化完毕、进入页面节点树后， attached 生命周期被触发
+ 
     this.getMonthDaysCurrent(new Date())
     
       // 向父组件发送事件

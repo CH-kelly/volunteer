@@ -35,7 +35,6 @@ Page({
   getLists(page){
     var that = this;
     apiServer.get("/venue/index",{offset:page}).then(res=>{
-      console.log(res);
       if(res.code === 1){
         let lists = that.data.lists;
         if(page > 0){
@@ -53,7 +52,6 @@ Page({
   gotoDetail(e){
     //url="/pages/appointment/detail/index?id=1"
     let id = e.currentTarget.dataset.id
-    console.log(id);
     wx.navigateTo({
       url: '/pages/appointment/detail/index?id='+id,
     })

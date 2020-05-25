@@ -1,0 +1,31 @@
+<wxs src="./filter.wxs" module="filter" />
+<view  class="index">
+  <calendar  type="{{type}}" bindmyevent="onMyEvent" bindclickcalendar="onClickCalendar"></calendar>
+<!--pages/appointment/apply/index.wxml-->
+    <view class="background">
+        <view class="desc" wx:if="{{type == 2}}" > *不能跨天预约 </view>
+        <view class="desc" wx:if="{{type == 1}}" >*不能跨节、跨天预约</view>
+      <scroll-view scroll-y style="height:800rpx">
+          <view class="from">
+              <block wx:for="{{lists}}" wx:key="index">
+                <view class="item" wx:if="{{item.is_open == true}}">
+                  <text>{{item.time}}</text>
+                  <view class="weui-input item-radio sex" bindtap="choice" data-id="{{index}}">
+                      <image wx:if="{{filter.check(radioArray,index)}}" src="/static/images/radio_checked.png"></image>
+                      <image wx:else src="/static/images/radio.png"></image>
+                  </view>
+                </view>
+             </block>
+          </view>
+      </scroll-view>
+  
+      <view class="buttom">
+        <view class="submit" bindtap="submit">
+          确定
+        </view>
+
+      </view>
+    </view>
+
+
+</view>

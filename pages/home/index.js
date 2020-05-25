@@ -23,16 +23,13 @@ Page({
     // 获取用户信息
     
     let openid = app.globalData.openid || wx.getStorageSync('openid');
-    console.log(openid);
     this.get_user_info(openid)
 
   },
   bindGetUserInfo(e){
-    console.log(e);
     var that = this;
     wx.login({
       success (res) {
-        console.log(res)
         if (res.code) {
           apiServer.get("/wxapp/login",{code:res.code}).then(res=>{
             console.log(res);
@@ -61,7 +58,6 @@ Page({
                       that.get_user_info(openid)
                       app.globalData.userInfo = res.data.userinfo;
                       app.globalData.uid = res.data.userinfo.user_id;
-                      console.log(res.data.userinfo,'res.data.userinfo')
                       wx.setStorageSync('userInfo',JSON.stringify(res.data.userinfo))
                       wx.setStorageSync('uid',res.data.userinfo.user_id)
                       that.setData({
@@ -108,7 +104,6 @@ Page({
     }
   },
   get_user_info(openid){
-    console.log('openid',openid);
     let that =this;
     apiServer.post("/user/index",{openid}).then(res=>{
       if(res.code == 1){

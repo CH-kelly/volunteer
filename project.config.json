@@ -131,6 +131,27 @@
 					"id": -1,
 					"name": "我的预约",
 					"pathName": "pages/home/pages/appointment/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约-选择身份",
+					"pathName": "pages/appointment/identity/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约-选择使用时间",
+					"pathName": "pages/appointment/choiceTime/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "场馆预约",
+					"pathName": "pages/appointment/index",
 					"scene": null
 				}
 			]
