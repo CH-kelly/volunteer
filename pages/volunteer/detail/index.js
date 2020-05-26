@@ -9,11 +9,7 @@ Page({
    */
   data: {
     id:0,
-    background:[
-     "/static/images/appointment/background.png",
-     "/static/images/appointment/background.png",
-     "/static/images/appointment/background.png",
-    ],
+    background:[],
     detail:{},
     isSign:0,
     token:'',

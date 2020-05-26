@@ -59,6 +59,12 @@ Page({
       url: '/pages/volunteer/detail/index?id='+id,
     })
   },
+  gotoVenueDetail(e){  //场馆预约
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/appointment/detail/index?id='+id,
+    })
+  },
   volunteerMore(){  //志愿者招募 - 更多
     wx.switchTab({
       url: '/pages/volunteer/index',

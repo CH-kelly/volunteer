@@ -1,5 +1,5 @@
 
-const host = "http://changguan.shengbokj.com/api/";
+const host = "https://changguan.shengbokj.com/api/";
 const service = {
   get (url,data) {
   const http = host + url;

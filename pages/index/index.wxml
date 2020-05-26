@@ -28,7 +28,7 @@
           <view class="lists">
               <block wx:for="{{activity}}" wx:key="index">
               
-                <view class="item" bindtap="gotoActivityDetail" data-id="{{item.id}}">
+                <view class="item" bindtap="gotoActivity" data-id="{{item.id}}">
                   <image class="item-image" src="{{item.thumbnail_image}}"></image>
                   <view class="desc">
                     <view class="title">{{item.name}}</view>
@@ -102,7 +102,7 @@
             </view>
             <view class="activity-center">
               <block  wx:for="{{oldactivity}}" wx:key="index">
-                <view class="activity-item" bindtap="gotoActivity" data-id="{{item.id}}">
+                <view class="activity-item" >
                     <image class="activity-image" src="{{item.thumbnail_image}}"></image>
                     <text class="title">{{item.name}}</text>
                     <view class="flex activity-desc">

@@ -89,6 +89,10 @@ Component({
       // 循环已过去的时间
       for (let i = day; i>0; i--) {
         let datei = this.data.selectDate.date - i;
+        let selected = false
+        if(type == 0){
+          selected = true;
+        }
         calendarDays.push({
           'year': year,
           'month': month,
@@ -96,7 +100,7 @@ Component({
           'day':new Date(year, month - 1, i).getDay(),
           'current': false,
           'today':false,
-          'selected': false
+          'selected': selected
         })
       }
       // 当前日期
